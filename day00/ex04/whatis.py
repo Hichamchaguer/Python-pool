@@ -8,9 +8,11 @@ def check_number(x) -> int:
 
 try:
     assert len(sys.argv) == 2, "invalid args"
-    assert isinstance(int(sys.argv[1]), int), "must be integer"
     check_number(int(sys.argv[1]))
-except (AssertionError, ValueError) as msg:   
+except ValueError as msg:
+    print("must be integer")
+    sys.exit()
+except AssertionError as msg:
     print(msg)
     sys.exit()
 
